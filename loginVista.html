@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login & Register</title>
+
+    <!-- Iconos -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- FontAwesome (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind custom config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        primaryLight: '#7A79E3',
+                        primaryDark: '#4A49B0',
+                        lightBg: '#FFFFFF',
+                        darkBg: '#181818',
+                        darkText: '#E0E0E0',
+                        accent: '#4FB8A3'
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-lightBg dark:bg-darkBg text-gray-800 dark:text-darkText transition-colors duration-300">
+
+    <!-- Header con Tailwind -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-primary">Nova<span class="text-accent">Salud</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="servicios.html" class="hover:text-primary transition-colors">Servicios</a>
+                <a href="nosotros.html" class="hover:text-primary transition-colors">Nosotros</a>
+                <a href="equipo.html" class="hover:text-primary transition-colors">Equipo</a>
+                <a href="contacto.html" class="hover:text-primary transition-colors">Contacto</a>
+                <a href="loginVista.html" id="mobileLoginBtn" class="bg-primary hover:bg-primaryLight text-white py-2 px-4 rounded-full transition-colors w-full">
+                    Iniciar Sesión
+                </a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-900 py-4 px-4">
+            <div class="flex flex-col space-y-3">
+                <a href="index.html" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="servicios.html" class="hover:text-primary transition-colors">Servicios</a>
+                <a href="nosotros.html" class="hover:text-primary transition-colors">Nosotros</a>
+                <a href="equipo.html" class="hover:text-primary transition-colors">Equipo</a>
+                <a href="contacto.html" class="hover:text-primary transition-colors">Contacto</a>
+                <a href="loginVista.html" id="mobileLoginBtn" class="bg-primary hover:bg-primaryLight text-white py-2 px-4 rounded-full transition-colors w-full">
+                    Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Formulario centrado -->
+    <div class="form-wrapper">
+        <div class="form-container">
+            <div class="col col-1">
+                <div class="image-layer">
+                    <img src="./images/terapia.png" class="form-image terapia" alt="">
+               
+                </div>
+                <p class="featured-words"><span>Bienvenido,</span> inicie sesión o regístrate.</p>
+            </div>
+
+            <div class="col col-2">
+                <div class="btn-box">
+                    <button class="btn btn-1" id="login">INICIAR SESIÓN</button>
+                    <button class="btn btn-2" id="register">REGISTRARSE</button>
+                </div>
+
+                <!-- Login Form -->
+                <form>
+                    <div class="login-form">
+                        <div class="form-title">
+                            <span>Iniciar Sesión</span>
+                        </div>
+                        <div class="form-inputs">
+                            <label for="usuario">Usuario:</label>
+                            <div class="input-box">
+                                <input type="text" name="usuario" id="usuario" class="input-field" placeholder="Usuario" required>
+                                <i class="bx bx-user icon"></i>
+                            </div>
+                            <label for="contrasena">Contraseña:</label>
+                            <div class="input-box">
+                                <input type="password" name="contrasena" id="contrasena" class="input-field" placeholder="Contraseña" required>
+                                <i class="bx bx-lock-alt icon"></i>
+                            </div>
+                            <div class="forgot-pass">
+                                <a href="#">¿Olvidó su contraseña?</a>
+                            </div>
+                            <div class="input-box">
+                                <button type="submit" class="input-submit">
+                                    <p>Iniciar Sesión</p>
+                                    <i class="bx bx-right-arrow-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="social-login">
+                            <i class="bx bxl-google"></i>
+                            <i class="bx bxl-facebook"></i>
+                            <i class="bx bxl-twitter"></i>
+                            <i class="bx bxl-whatsapp"></i>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Register Form -->
+                <form id="formRegistro">
+                    <div class="register-form">
+                        <div class="form-title">
+                            <span>Crear Cuenta</span>
+                        </div>
+                        <div class="form-inputs">
+                            <label for="correo">Correo:</label>
+                            <div class="input-box">
+                                <input type="text" name="correo" id="correo" class="input-field" placeholder="Email" required>
+                                <i class="bx bx-envelope icon"></i>
+                            </div>
+
+                            <label for="usuario">Usuario:</label>
+                            <div class="input-box">
+                                <input type="text" name="usuario" id="usuario_registro" class="input-field" placeholder="Usuario" required>
+                                <i class="bx bx-user icon"></i>
+                            </div>
+
+                            <label for="contrasena">Contraseña:</label>
+                            <div class="input-box">
+                                <input type="password" name="contrasena" id="contrasena_registro" class="input-field" placeholder="Contraseña" required>
+                                <i class="bx bx-lock-alt icon"></i>
+                            </div>
+
+                            <label for="telefono">Número de Celular:</label>
+                            <div class="input-box">
+                                <input type="tel" name="telefono" id="telefono" class="input-field" placeholder="Ej. 987654321" required>
+                                <i class="bx bx-phone icon"></i>
+                            </div>
+
+                            <label for="direccion">Dirección:</label>
+                            <div class="input-box">
+                                <input type="text" name="direccion" id="direccion" class="input-field" placeholder="Dirección" required>
+                                <i class="bx bx-map icon"></i>
+                            </div>
+
+                            <label for="edad">Edad:</label>
+                            <div class="input-box">
+                                <input type="number" name="edad" id="edad" class="input-field" placeholder="Edad" min="1" required>
+                                <i class="bx bx-calendar icon"></i>
+                            </div>
+
+                            <button type="submit" class="input-submit">
+                                Registrar
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </button>                                                
+                            <a href="crud.html">CRUD DE USUARIOS</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/funcionesForm.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

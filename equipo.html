@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Salud - Equipo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        primaryLight: '#7A79E3',
+                        primaryDark: '#4A49B0',
+                        lightBg: '#FFFFF0',
+                        darkBg: '#181818',
+                        darkText: '#E0E0E0',
+                        accent: '#4FB8A3'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- This would normally be in a separate CSS file: style.css -->
+    <template id="external-css">
+        /* External CSS File: style.css */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Login Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            animation: modalFade 0.3s ease-in-out;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .form-input:focus {
+            box-shadow: 0 0 0 2px rgba(93, 92, 222, 0.3);
+        }
+    </template>
+</head>
+<body class="bg-lightBg dark:bg-darkBg text-gray-800 dark:text-darkText transition-colors duration-300">
+
+    <!-- Header con Tailwind -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-primary">Nova<span class="text-accent">Salud</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="servicios.html" class="hover:text-primary transition-colors">Servicios</a>
+                <a href="nosotros.html" class="hover:text-primary transition-colors">Nosotros</a>
+                <a href="equipo.html" class="hover:text-primary transition-colors">Equipo</a>
+                <a href="contacto.html" class="hover:text-primary transition-colors">Contacto</a>
+                <a href="loginVista.html" id="mobileLoginBtn" class="bg-primary hover:bg-primaryLight text-white py-2 px-4 rounded-full transition-colors w-full">
+                    Iniciar Sesión
+                </a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-900 py-4 px-4">
+            <div class="flex flex-col space-y-3">
+                <a href="index.html" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="servicios.html" class="hover:text-primary transition-colors">Servicios</a>
+                <a href="nosotros.html" class="hover:text-primary transition-colors">Nosotros</a>
+                <a href="equipo.html" class="hover:text-primary transition-colors">Equipo</a>
+                <a href="contacto.html" class="hover:text-primary transition-colors">Contacto</a>
+                <a href="loginVista.html" id="mobileLoginBtn" class="bg-primary hover:bg-primaryLight text-white py-2 px-4 rounded-full transition-colors w-full">
+                    Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Team Section -->
+    <section id="equipo" class="py-16 bg-gray-50 dark:bg-gray-800 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">Nuestro Equipo</h2>
+                <p class="max-w-2xl mx-auto">Contamos con los mejores profesionales comprometidos con su salud y bienestar.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Doctor 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Dra. Laura Martínez" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Dra. Laura Martínez</h3>
+                        <p class="text-primary mb-2">Medicina General</p>
+                        <p class="text-sm">Especialista en medicina preventiva con más de 15 años de experiencia.</p>
+                    </div>
+                </div>
+                <!-- Doctor 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden">
+                    <img src="./images/doctor2.jpg" 
+                         alt="Dr. Carlos Vega" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Dr. Carlos Vega</h3>
+                        <p class="text-primary mb-2">Cardiología</p>
+                        <p class="text-sm">Cardiólogo intervencionista con formación en las mejores clínicas de Europa.</p>
+                    </div>
+                </div>
+                <!-- Doctor 3 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden">
+                    <img src="./images/doctora3.jpg" 
+                         alt="Dra. Ana Rodríguez" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Dra. Ana Rodríguez</h3>
+                        <p class="text-primary mb-2">Pediatría</p>
+                        <p class="text-sm">Especialista en desarrollo infantil y adolescente con enfoque en la prevención.</p>
+                    </div>
+                </div>
+                <!-- Doctor 4 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Dr. Miguel Sánchez" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Dr. Miguel Sánchez</h3>
+                        <p class="text-primary mb-2">Odontología</p>
+                        <p class="text-sm">Odontólogo con especialidad en estética dental y ortodoncia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+<footer class="bg-gray-900 text-white py-8 px-4">
+    <div class="container mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">Nova<span class="text-accent">Salud</span></h3>
+                <p class="mb-4">Comprometidos con su salud y bienestar desde 2010.</p>
+                <p>&copy; 2025 Nova Salud. Todos los derechos reservados.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
+                    <li><a href="#servicios" class="hover:text-accent transition-colors">Servicios</a></li>
+                    <li><a href="#nosotros" class="hover:text-accent transition-colors">Nosotros</a></li>
+                    <li><a href="#equipo" class="hover:text-accent transition-colors">Equipo</a></li>
+                    <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Boletín Informativo</h3>
+                <p class="mb-4">Suscríbase para recibir noticias y actualizaciones.</p>
+                <form class="flex">
+                    <input type="email" placeholder="Su correo electrónico" class="px-4 py-2 rounded-l-lg w-full text-gray-800">
+                    <button type="submit" class="bg-primary hover:bg-primaryLight px-4 py-2 rounded-r-lg transition-colors">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- This would normally be in a separate JavaScript file: script.js -->
+<template id="external-js">
+    // External JavaScript File: script.js
+
+    // Dark mode detection
+    function initDarkMode() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    }
+
+    // Mobile menu toggle
+    function initMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Login modal functionality
+    function initLoginModal() {
+        const loginBtn = document.getElementById('loginBtn');
+        const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        function openModal() {
+            loginModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModalFunc() {
+            loginModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        loginBtn.addEventListener('click', openModal);
+        mobileLoginBtn.addEventListener('click', openModal);
+        closeModal.addEventListener('click', closeModalFunc);
+        
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                closeModalFunc();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && loginModal.classList.contains('active')) {
+                closeModalFunc();
+            }
+        });
+        
+        // Login form submission
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Here you would typically send login data to a server
+            console.log('Login attempt:', { username, password });
+            
+            // Show a simple confirmation for demo purposes
+            alert('Inicio de sesión exitoso!');
+            closeModalFunc();
+        });
+    }
+
+    // Contact form submission
+    function initContactForm() {
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send form data to a server
+            console.log('Contact form submission:', { name, email, phone, service, message });
+            
+            // Reset form for demo purposes
+            contactForm.reset();
+            
+            // Show a simple confirmation for demo purposes
+            alert('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');
+        });
+    }
+
+    // Smooth scrolling for navigation links
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if it's open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                    
+                    // Scroll to target with smooth behavior
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    // Initialize all functions
+    document.addEventListener('DOMContentLoaded', () => {
+        initDarkMode();
+        initMobileMenu();
+        initLoginModal();
+        initContactForm();
+        initSmoothScroll();
+    });
+</template>
+
+<!-- Script to load external CSS and JS -->
+<script>
+    // Apply external CSS
+    const externalCSS = document.getElementById('external-css').innerHTML;
+    const styleElement = document.createElement('style');
+    styleElement.textContent = externalCSS;
+    document.head.appendChild(styleElement);
+    
+    // Apply external JS
+    const externalJS = document.getElementById('external-js').innerHTML;
+    const scriptElement = document.createElement('script');
+    scriptElement.textContent = externalJS;
+    document.body.appendChild(scriptElement);
+</script>
+</body>
+</html>

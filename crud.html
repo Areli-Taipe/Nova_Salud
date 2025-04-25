@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/crud.css">
+</head>
+<body>
+
+    <main>
+        <a href="loginVista.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al Login</a>
+
+        <table id="tablaUsuarios" class="table-auto w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">ID</th>
+                    <th class="px-4 py-2">Correo</th>
+                    <th class="px-4 py-2">Usuario</th>
+                    <th class="px-4 py-2">Teléfono</th>
+                    <th class="px-4 py-2">Dirección</th>
+                    <th class="px-4 py-2">Edad</th>
+                    <th class="px-4 py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyUsuarios">
+                <!-- Usuarios se insertarán aquí dinámicamente -->
+            </tbody>
+        </table>   
+    </main>
+
+    <div id="mensajeAlerta" class="mensaje-alerta">
+        <div class="contenido-alerta">
+            <i id="iconoAlerta" class="fas fa-check-circle"></i>
+            <p id="textoAlerta">Operación realizada con éxito</p>
+        </div>
+    </div>
+
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-contenido">
+            <h3>Confirmar eliminación</h3>
+            <p>¿Estás seguro de que deseas eliminar este producto?</p>
+            <div class="botones-modal">
+                <button id="btnConfirmarEliminar" class="btn-eliminar">Eliminar</button>
+                <button id="btnCancelarEliminar" class="btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar usuario -->
+    <div id="modalEditar" class="fixed inset-50 hidden bg-black bg-opacity-150 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg w-[400px] space-y-4 shadow-xl">
+            <h2 class="text-lg font-bold text-purple-700">Actualizar Usuario</h2>
+            <form id="formActualizar">
+                <input type="hidden" id="actualizar_id" name="id">
+                <input type="email" id="actualizar_correo" name="correo" required>
+                <input type="text" id="actualizar_usuario" name="usuario" required>
+                <input type="tel" id="actualizar_telefono" name="telefono">
+                <input type="text" id="actualizar_direccion" name="direccion">
+                <input type="number" id="actualizar_edad" name="edad">
+                <button type="submit">Actualizar</button>
+                <button type="button" onclick="cerrarModal()">Cancelar</button>
+              </form>              
+
+        </div>
+    </div>
+  
+    <footer>
+        <p>&copy; 2025 Sistema de Gestión de Productos | Desarrollado por ProfCodeGunar</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
