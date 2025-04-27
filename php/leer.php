@@ -5,7 +5,7 @@ require_once 'conexion.php';
 $conexion = conectarDB();
 $respuesta = array();
 
-$sql = "SELECT id, correo, usuario, telefono, direccion, edad FROM registros ORDER BY id DESC";
+$sql = "SELECT id, correo, usuario, telefono, direccion, edad FROM registros ORDER BY id ASC";
 $resultado = $conexion->query($sql);
 
 if ($resultado) {
